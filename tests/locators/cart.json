@@ -1,0 +1,12 @@
+{
+    "productName": "a h2.lcs-text-md",
+    "removeItem": "button.text-\\[\\#D41A1A\\]",
+    "cartIcon": "button[aria-label='cart search']",
+    "checkoutBtn": "button.lcs-border.lcs-fontWeight-bold",
+    "expressCheckoutBtn": "button.border-accent.lcs-text-2xl",
+    "cartCountBadge": ".lcs-h-2.lcs-w-2.lcs-bg-accent",
+    "itemContainer": ".lcs-mx-auto.lcs-marginBottom-4",
+    "itemPrice": ".offer-amount.font-semibold",
+    "summaryContainer": ".lcs-paddingX-2.lcs-paddingTop-4",
+    "emptyCartMessage": "span[variant='black']"
+}

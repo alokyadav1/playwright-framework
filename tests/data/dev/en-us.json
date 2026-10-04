@@ -1,0 +1,30 @@
+{
+    "loginEmail": "5e8a26a7aa7209dbd149b208:245fd56eb357224b637bc5a1f6c4223e:2ca87eba96f4d6ecec65731037bed7692110fb7b3605",
+    "cartEmail": "5e8a26a7aa7209dbd149b208:245fd56eb357224b637bc5a1f6c4223e:2ca87eba96f4d6ecec65731037bed7692110fb7b3605",
+    "checkoutEmail": "5e8a26a7aa7209dbd149b208:245fd56eb357224b637bc5a1f6c4223e:2ca87eba96f4d6ecec65731037bed7692110fb7b3605",
+    "placeOrderEmail": "5e8a26a7aa7209dbd149b208:245fd56eb357224b637bc5a1f6c4223e:2ca87eba96f4d6ecec65731037bed7692110fb7b3605",
+    "validPassword": "5476b43d4801f5e4de0ba283:e17973c65f2fab55a854d5bb891c3349:9c366900d8de342d",
+    "productName": "Wooden Plates",
+    "plpProductName": "Wooden Plates",
+    "productName1": "Wooden Plates",
+    "welcomeMsg": "Hello",
+    "addToCartSuccessMsg": "Product Added to Cart",
+    "emptyCartMsg": "Your shopping cart is empty",
+    "creditCardData": {
+        "cardHolderName": "John Doe",
+        "cardNumber": "4242424242424242",
+        "cvv": "123",
+        "month": "12",
+        "year": "30"
+    },
+    "suggestedShippingAddress": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "streetAddress": "123 Main Street",
+        "apt": "Apt 4B",
+        "city": "New York",
+        "state": "NY",
+        "postalCode": "10001",
+        "mobile": "1234567890"
+    }
+}

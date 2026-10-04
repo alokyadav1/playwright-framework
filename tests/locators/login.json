@@ -1,0 +1,12 @@
+{
+    "profileIcon": "a .text-headertext.align-baseline",
+    "avatar": ".w-12.h-12",
+    "emailId": "#username",
+    "continueBtn": "form button.lcs-text-xs.gap-2",
+    "signInBtn": "form button.lcs-text-xs.gap-2",
+    "passwordField": "#password",
+    "confirmPasswordField": "#cpassword",
+    "welcomeMsg": ".border-b .capitalize.lcs-text-primary",
+    "loginErrorMsg": ".text-red-500",
+    "storeLogo": "a img[alt='logo image']"
+}

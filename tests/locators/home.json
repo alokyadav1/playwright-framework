@@ -1,0 +1,5 @@
+{
+    "heroBannerContainer": ".flex.scroll-smooth",
+    "topDealsContainer": ".thinner-scrollbar",
+    "productPrice": ".offer-amount"
+}

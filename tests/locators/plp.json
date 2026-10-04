@@ -1,0 +1,7 @@
+{
+    "plpTitle": "h2.lcs-text-black.capitalize.lcs-text-primary.lcs-leading-5",
+    "productCardContainer": ".lcs-border-none.relative",
+    "productImageContainer": ".relative.bg-white",
+    "productName": ".lcs-marginX-4 > .lcs-marginTop-3 > .lcs-text-black",
+    "productPrice": ".offer-amount"
+}

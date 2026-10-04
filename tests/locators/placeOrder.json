@@ -1,0 +1,4 @@
+{
+    "orderConfirmationTitle": "h1, h2, .order-confirmed",
+    "orderIdText": ".order-id, span:has-text('Order')"
+}

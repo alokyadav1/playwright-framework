@@ -1,0 +1,10 @@
+{
+    "siteLogo": "img[alt='logo image']",
+    "profileIcon": "a .text-headertext.align-baseline",
+    "wishListIcon": "a[aria-label='Wishlist']",
+    "cartIcon": "button[aria-label='cart search']",
+    "searchBox": "input[maxlength='200']",
+    "searchDropDown": ".overflow-y-scroll",
+    "productResultLocator": ".lcs-text-black.lcs-fontWeight-bold.lcs-text-sm.lcs-paddingBottom-2",
+    "welcomeMsg": ".border-b .lcs-capitalize.lcs-text-primary"
+}

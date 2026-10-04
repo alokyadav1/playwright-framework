@@ -1,0 +1,19 @@
+{
+    "continueBtn": "button.lcs-bg-primary",
+    "placeOrderBtn": "button.gap-2",
+    "orderPlacedSuccessContainer": ".flex.b-8",
+    "shippingDetailsSection": ".p-4.space-y-4",
+    "defaultAddress": ".lcs-w-full.space-y-2",
+    "changeAddressBtn": "button:has-text('Change Address')",
+    "continueToPaymentBtn": "button:has-text('Continue to Payment')",
+    "shippingMethodCards": ".flex.flex-col.px-4.py-3.border.rounded-xl.cursor-pointer",
+    "paymentMethodContainer": ".flex .rounded-xl",
+    "vstripeCardholderName": "#cardholderName",
+    "vstripeCardNumber": "#cardNumber",
+    "vstripeMonth": "#MM",
+    "vstripeYear": "#YY",
+    "vstripeCvv": "#cardCVC",
+    "stripeImg": ".h-5 img[alt=VStripe]",
+    "codImg": ".h-5 img[alt='Cash on Delivery']",
+    "orderSummaryContainer": ".h-fit.bg-white"
+}

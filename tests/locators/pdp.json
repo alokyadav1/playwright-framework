@@ -1,0 +1,7 @@
+{
+    "productName": ".lcs-text-primary.lcs-fontWeight-semibold.lcs-w-full",
+    "productPrice": ".flex .gap-3 .offer-amount",
+    "addToCartBtn": "button:has-text('Add To Cart')",
+    "quantitySelector": ".lcs-w-full .flex.lcs-h-14",
+    "toastMessage": ".fixed.right-0"
+}
