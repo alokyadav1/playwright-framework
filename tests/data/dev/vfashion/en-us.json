@@ -1,0 +1,35 @@
+{
+  "loginEmail": "5e8a26a7aa7209dbd149b208:245fd56eb357224b637bc5a1f6c4223e:2ca87eba96f4d6ecec65731037bed7692110fb7b3605",
+  "cartEmail": "5e8a26a7aa7209dbd149b208:245fd56eb357224b637bc5a1f6c4223e:2ca87eba96f4d6ecec65731037bed7692110fb7b3605",
+  "checkoutEmail": "5e8a26a7aa7209dbd149b208:245fd56eb357224b637bc5a1f6c4223e:2ca87eba96f4d6ecec65731037bed7692110fb7b3605",
+  "validPassword": "5476b43d4801f5e4de0ba283:e17973c65f2fab55a854d5bb891c3349:9c366900d8de342d",
+  "paypalEmail": "85249da06af0ed28085d2243:d46c6cdfd0ca56a11bf44d6ba708c305:dd82bcf902dfffe84ac87adb05c25fafdb9f75c50c189e03d9",
+  "paypalPassword": "50cb7078c18c1ae13e3c59bd:6bbcffa14d11a02266be768baba58a2e:ed1a0acd8627cafa",
+  "productName": "shoes",
+  "plpProductName": "Wooden Plates",
+  "productName1": "Wooden Plates",
+  "welcomeMsg": "Hello",
+  "addToCartSuccessMsg": "Product Added to Cart",
+  "emptyCartMsg": "Your shopping cart is empty",
+  "creditCardData": {
+    "cardHolderName": "John Doe",
+    "cardNumber": "4242424242424242",
+    "cvv": "123",
+    "month": "12",
+    "year": "30"
+  },
+  "paypalData": {
+    "email": "d70d0626b136098a4d1df36e:166d548f1fbcf348e0900e499a9a9233:623b1544b551587d95afeb2e1a549dda0ea0616521e42d21a158347c514ae566bee0992c2b",
+    "password": "36912a3d180aa000ecb87a00:2ee300252d7131091b597e769189221f:9da1cea9a70bff93"
+  },
+  "suggestedShippingAddress": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "streetAddress": "123 Main Street",
+    "apt": "Apt 4B",
+    "city": "New York",
+    "state": "NY",
+    "postalCode": "10001",
+    "mobile": "1234567890"
+  }
+}

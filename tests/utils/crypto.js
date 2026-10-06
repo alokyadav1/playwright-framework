@@ -7,8 +7,7 @@ import { fileURLToPath } from "url";
 if (!process.env.SECRET_KEY) {
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = path.dirname(__filename);
-    const envFile = process.env.NODE_ENV ? `.env.${process.env.NODE_ENV}` : ".env";
-    dotenv.config({ path: path.resolve(__dirname, "../../", envFile) });
+    dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 }
 
 const ALGORITHM = "aes-256-gcm";

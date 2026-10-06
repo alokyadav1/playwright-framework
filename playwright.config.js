@@ -7,9 +7,8 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Load environment variables based on NODE_ENV (defaults to .env)
-const envFile = process.env.NODE_ENV ? `.env.${process.env.NODE_ENV}` : ".env";
-dotenv.config({ path: path.resolve(__dirname, envFile) });
+// Load environment variables
+dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 const testDir = defineBddConfig({
   paths: ["tests/step-definitions/**/*.feature"],
@@ -21,13 +20,10 @@ export default defineConfig({
   fullyParallel: true,
   retries: 1,
   workers: "50%",
-  reporter: [
-    ["html", { open: "never" }],
-    ["list"]
-  ],
-  timeout:120000,
+  reporter: [["html", { open: "never" }], ["list"]],
+  timeout: 120000,
   use: {
-    baseURL: process.env.BASE_URL || "https://demo.example.com/",
+    baseURL: process.env.BASE_URL || "https://vpro.logixal.com/",
     trace: "on",
     video: "on",
     screenshot: "only-on-failure",
@@ -37,12 +33,47 @@ export default defineConfig({
 
   projects: [
     {
-      name: "chromium",
+      name: "vfashion-desktop",
       use: {
         ...devices["Desktop Chrome"],
-        viewport: { width: 1366, height: 633 },
-        locale: process.env.LOCALE === "ar" ? "ar-SA" : "en-US",
+        baseURL: "https://vfashion.logixal.com/",
+        locale: "en-US",
         timezoneId: "Asia/Kolkata",
+        testEnv: "dev",
+        dataLocale: "en-us",
+      },
+    },
+    {
+      name: "vfashion-mobile",
+      use: {
+        ...devices["Galaxy S24"],
+        baseURL: "https://vfashion.logixal.com/",
+        locale: "en-US",
+        timezoneId: "Asia/Kolkata",
+        testEnv: "dev",
+        dataLocale: "en-us",
+      },
+    },
+    {
+      name: "vpro-desktop",
+      use: {
+        ...devices["Desktop Chrome"],
+        baseURL: "https://vpro.logixal.com/",
+        locale: "en-US",
+        timezoneId: "Asia/Kolkata",
+        testEnv: "dev",
+        dataLocale: "en-us",
+      },
+    },
+    {
+      name: "vpro-mobile",
+      use: {
+        ...devices["Galaxy S24"],
+        baseURL: "https://vpro.logixal.com/",
+        locale: "en-US",
+        timezoneId: "Asia/Kolkata",
+        testEnv: "dev",
+        dataLocale: "en-us",
       },
     },
   ],

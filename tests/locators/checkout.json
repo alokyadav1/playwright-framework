@@ -15,5 +15,7 @@
     "vstripeCvv": "#cardCVC",
     "stripeImg": ".h-5 img[alt=VStripe]",
     "codImg": ".h-5 img[alt='Cash on Delivery']",
+    "paypalPaymentBtn": "button:has-text('PayPal')",
+    "paypalIframe": "iframe[title='PayPal']",
     "orderSummaryContainer": ".h-fit.bg-white"
 }

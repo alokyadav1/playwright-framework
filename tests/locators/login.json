@@ -1,5 +1,5 @@
 {
-    "profileIcon": "a .text-headertext.align-baseline",
+    "profileIcon": "a .text-headertext.align-baseline svg",
     "avatar": ".w-12.h-12",
     "emailId": "#username",
     "continueBtn": "form button.lcs-text-xs.gap-2",

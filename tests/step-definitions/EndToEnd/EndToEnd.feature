@@ -1,6 +1,6 @@
-Feature: End To End E-Commerce Flow
+Feature: End To End LCS Flow
 
-  @e2e @severity:critical
+  @severity:critical
   Scenario: E2E_1 - Complete E2E flow from Login to Order Placement
     Given User is on the home page
     When User navigates to sign in page

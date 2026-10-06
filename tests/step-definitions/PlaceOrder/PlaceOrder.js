@@ -8,6 +8,11 @@ When("User authorizes payment using credit card {string}", async ({ checkoutPage
     await checkoutPage.authorizeVStripePayment(cardData);
 });
 
+When("User authorizes payment using PayPal {string}", async ({ checkoutPage, demoData }, paypalKey) => {
+    const paypalData = demoData[paypalKey] || demoData.paypalData;
+    await checkoutPage.authorizePayPalPayment(paypalData);
+});
+
 When("User clicks on Place Order button", async ({ checkoutPage }) => {
     await checkoutPage.clickPlaceOrder();
 });

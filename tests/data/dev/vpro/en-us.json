@@ -17,6 +17,10 @@
         "month": "12",
         "year": "30"
     },
+    "paypalData": {
+        "email": "sb-ms4j736931871@personal.example.com",
+        "password": "Y&vEPqe2"
+    },
     "suggestedShippingAddress": {
         "firstName": "John",
         "lastName": "Doe",

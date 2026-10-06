@@ -1,34 +1,36 @@
 {
-    "name": "lcs-playwright-automation",
-    "version": "1.0.0",
-    "description": "Playwright Automation Framework for LCS E-Commerce Platform",
-    "main": "index.js",
-    "type": "module",
-    "scripts": {
-        "bdd:gen": "npx bddgen",
-        "test": "npx bddgen && npx playwright test",
-        "test:dev": "cross-env NODE_ENV=dev npx bddgen && npx playwright test",
-        "test:headed": "npx bddgen && npx playwright test --headed",
-        "test:e2e": "npx bddgen && npx playwright test --grep @e2e",
-        "report": "npx playwright show-report"
-    },
-    "keywords": [
-        "playwright",
-        "bdd",
-        "cucumber",
-        "e2e-testing",
-        "pom"
-    ],
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "@playwright/test": "1.58.0",
-        "@types/node": "^22.0.0",
-        "cross-env": "^7.0.3",
-        "dotenv": "^16.4.7"
-    },
-    "dependencies": {
-        "@cucumber/cucumber": "^12.6.0",
-        "playwright-bdd": "^8.4.2"
-    }
+  "name": "lcs-playwright-automation",
+  "version": "1.0.0",
+  "description": "Playwright Automation Framework for LCS E-Commerce Platform",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "bdd:gen": "npx bddgen",
+    "test": "npx bddgen && npx playwright test",
+    "test:vfashion-desktop": "npx bddgen && npx playwright test --grep @paypal --headed --project=vfashion-desktop",
+    "test:vfashion-mobile": "npx bddgen && npx playwright test --grep @paypal --headed --project=vfashion-mobile",
+    "test:vpro-desktop": "npx bddgen && npx playwright test --grep @e2e --headed --project=vpro-desktop",
+    "test:vpro-mobile": "npx bddgen && npx playwright test --grep @e2e --headed --project=vpro-mobile",
+    "test:headed": "npx bddgen && npx playwright test --headed",
+    "report": "npx playwright show-report"
+  },
+  "keywords": [
+    "playwright",
+    "bdd",
+    "cucumber",
+    "e2e-testing",
+    "pom"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "1.58.0",
+    "@types/node": "^22.0.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.7"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^12.6.0",
+    "playwright-bdd": "^8.4.2"
+  }
 }
