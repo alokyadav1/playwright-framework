@@ -13,6 +13,8 @@ dotenv.config({ path: path.resolve(__dirname, ".env") });
 const testDir = defineBddConfig({
   paths: ["tests/step-definitions/**/*.feature"],
   require: ["tests/fixtures.js", "tests/step-definitions/**/*.js"],
+  // Prevent bddgen from picking up API spec files
+  ignore: ["**/*.api.spec.js"],
 });
 
 export default defineConfig({
@@ -34,6 +36,7 @@ export default defineConfig({
   projects: [
     {
       name: "vfashion-desktop",
+      testIgnore: /.*\.api\.spec\.js/,
       use: {
         ...devices["Desktop Chrome"],
         baseURL: "https://vfashion.logixal.com/",
@@ -45,6 +48,7 @@ export default defineConfig({
     },
     {
       name: "vfashion-mobile",
+      testIgnore: /.*\.api\.spec\.js/,
       use: {
         ...devices["Galaxy S24"],
         baseURL: "https://vfashion.logixal.com/",
@@ -56,6 +60,7 @@ export default defineConfig({
     },
     {
       name: "vpro-desktop",
+      testIgnore: /.*\.api\.spec\.js/,
       use: {
         ...devices["Desktop Chrome"],
         baseURL: "https://vpro.logixal.com/",
@@ -67,6 +72,7 @@ export default defineConfig({
     },
     {
       name: "vpro-mobile",
+      testIgnore: /.*\.api\.spec\.js/,
       use: {
         ...devices["Galaxy S24"],
         baseURL: "https://vpro.logixal.com/",
@@ -74,6 +80,23 @@ export default defineConfig({
         timezoneId: "Asia/Kolkata",
         testEnv: "dev",
         dataLocale: "en-us",
+      },
+    },
+
+    // ── API project ─────────────────────────────────────────────────────────
+    // No browser device. Matches only *.api.spec.js files.
+    {
+      name: "api",
+      testDir: "tests/api",
+      testMatch: /.*\.api\.spec\.js/,
+      retries: 0,
+      use: {
+        baseURL: "https://headless.logixal.com",
+        extraHTTPHeaders: {
+          "Content-Type": "application/json",
+          Accept: "text/plain, */*, */*",
+          Connection: "keep-alive",
+        },
       },
     },
   ],

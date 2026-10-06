@@ -12,6 +12,7 @@
     "test:vpro-desktop": "npx bddgen && npx playwright test --grep @e2e --headed --project=vpro-desktop",
     "test:vpro-mobile": "npx bddgen && npx playwright test --grep @e2e --headed --project=vpro-mobile",
     "test:headed": "npx bddgen && npx playwright test --headed",
+    "test:api": "npx playwright test --grep API_LOGIN_1 --project=api",
     "report": "npx playwright show-report"
   },
   "keywords": [
@@ -26,6 +27,8 @@
   "devDependencies": {
     "@playwright/test": "1.58.0",
     "@types/node": "^22.0.0",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
     "cross-env": "^7.0.3",
     "dotenv": "^16.4.7"
   },

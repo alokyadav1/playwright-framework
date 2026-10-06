@@ -44,7 +44,13 @@ export const test = base.extend({
     store = store || "vpro";
 
     // 2. Resolve data path: tests/data/{testEnv}/{store}/{dataLocale}.json
-    let dataPath = path.resolve(__dirname, "data", testEnv, store, `${dataLocale}.json`);
+    let dataPath = path.resolve(
+      __dirname,
+      "data",
+      testEnv,
+      store,
+      `${dataLocale}.json`,
+    );
 
     // Fallbacks if target file is missing
     if (!fs.existsSync(dataPath)) {
@@ -54,9 +60,6 @@ export const test = base.extend({
     if (!fs.existsSync(dataPath)) {
       dataPath = path.resolve(__dirname, "data", "dev", "vpro", "en-us.json");
     }
-
-    console.log("testEnv: ", testEnv, "| store: ", store, "| dataLocale: ", dataLocale);
-    console.log("dataFile: ", dataPath);
 
     const data = require(dataPath);
     await use(data);
