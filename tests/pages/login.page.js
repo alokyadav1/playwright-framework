@@ -1,6 +1,8 @@
 import { expect } from "@playwright/test";
+import fs from "fs";
 import { decryptText } from "../utils/crypto.js";
 import locators from "../locators/login.json" with { type: "json" };
+import { SessionManager } from "../utils/sessionManager.js";
 
 export class LoginPage {
   /**
@@ -8,6 +10,7 @@ export class LoginPage {
    */
   constructor(page) {
     this.page = page;
+    this.sessionManager = new SessionManager(page);
   }
 
   async navigateToSignInPage() {
@@ -65,12 +68,80 @@ export class LoginPage {
     });
   }
 
-  async performLogin(emailKeyOrRaw, passwordKeyOrRaw) {
+  /**
+   * Check if user is currently logged in
+   */
+  async isLoggedIn() {
+    return await this.sessionManager.isLoggedIn();
+  }
+
+  /**
+   * Resolve storage state file path for given profile and store
+   */
+  getSessionPath(profileKey, emailKeyOrRaw) {
+    return this.sessionManager.getSessionPath(profileKey, emailKeyOrRaw);
+  }
+
+  /**
+   * Restore cookies and localStorage from stored session file
+   */
+  async restoreSession(sessionPath) {
+    return await this.sessionManager.restoreSession(sessionPath);
+  }
+
+  /**
+   * Save current context storage state to session file
+   */
+  async saveSession(sessionPath) {
+    return await this.sessionManager.saveSession(sessionPath);
+  }
+
+
+  /**
+   * Execute full UI login steps
+   */
+  async executeLoginFlow(emailKeyOrRaw, passwordKeyOrRaw) {
     await this.navigateToSignInPage();
     await this.enterEmail(emailKeyOrRaw);
     await this.clickContinue();
     await this.enterPassword(passwordKeyOrRaw);
     await this.clickSignIn();
     await this.verifyLoggedIn();
+  }
+
+  /**
+   * Perform login with on-demand session caching.
+   * If session exists and is valid, reuses it.
+   * Otherwise, executes login UI flow and persists the session.
+   */
+  async performLogin(emailKeyOrRaw, passwordKeyOrRaw, profileKey = null) {
+    const profile = profileKey || emailKeyOrRaw;
+    const sessionPath = this.sessionManager.getSessionPath(profileKey, emailKeyOrRaw);
+
+    // 1. Check if session file already exists
+    if (fs.existsSync(sessionPath)) {
+      console.log(
+        `[Session] Found stored session for profile "${profile}". Attempting reuse...`
+      );
+      const restored = await this.sessionManager.restoreSession(sessionPath);
+      if (restored) {
+        console.log(
+          `[Session] Successfully reused session for profile "${profile}".`
+        );
+        return;
+      }
+      console.warn(
+        `[Session] Stored session for profile "${profile}" was expired or invalid. Performing login...`
+      );
+      try {
+        fs.unlinkSync(sessionPath);
+      } catch {}
+    }
+
+    // 2. Perform full login flow
+    await this.executeLoginFlow(emailKeyOrRaw, passwordKeyOrRaw);
+
+    // 3. Store session for subsequent tests
+    await this.sessionManager.saveSession(sessionPath);
   }
 }

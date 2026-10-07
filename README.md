@@ -52,7 +52,8 @@ The framework follows the **Page Object Model (POM)** pattern integrated with **
     │       ├── EndToEnd.feature
     │       └── EndToEnd.js
     ├── utils/
-    │   └── crypto.js              # Encrypted credential helper (AES-128-CBC)
+    │   ├── crypto.js              # Encrypted credential helper (AES-128-CBC)
+    │   └── sessionManager.js      # Session caching & storage state manager
     └── fixtures.js                # Custom Playwright test fixture & POM injector
 ```
 

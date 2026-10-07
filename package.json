@@ -7,7 +7,7 @@
   "scripts": {
     "bdd:gen": "npx bddgen",
     "test": "npx bddgen && npx playwright test",
-    "test:vfashion-desktop": "npx bddgen && npx playwright test --grep @paypal --headed --project=vfashion-desktop",
+    "test:vfashion-desktop": "npx bddgen && npx playwright test --grep @cart --headed --project=vfashion-desktop",
     "test:vfashion-mobile": "npx bddgen && npx playwright test --grep @paypal --headed --project=vfashion-mobile",
     "test:vpro-desktop": "npx bddgen && npx playwright test --grep @e2e --headed --project=vpro-desktop",
     "test:vpro-mobile": "npx bddgen && npx playwright test --grep @e2e --headed --project=vpro-mobile",

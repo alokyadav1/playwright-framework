@@ -9,7 +9,7 @@ When(
   async ({ loginPage, demoData }, emailKey, pwdKey) => {
     const email = demoData[emailKey] || emailKey;
     const pwd = demoData[pwdKey] || pwdKey;
-    await loginPage.performLogin(email, pwd);
+    await loginPage.performLogin(email, pwd, emailKey);
   },
 );
 
