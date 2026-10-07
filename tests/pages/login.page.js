@@ -115,33 +115,33 @@ export class LoginPage {
    * Otherwise, executes login UI flow and persists the session.
    */
   async performLogin(emailKeyOrRaw, passwordKeyOrRaw, profileKey = null) {
-    const profile = profileKey || emailKeyOrRaw;
-    const sessionPath = this.sessionManager.getSessionPath(profileKey, emailKeyOrRaw);
+    // const profile = profileKey || emailKeyOrRaw;
+    // const sessionPath = this.sessionManager.getSessionPath(profileKey, emailKeyOrRaw);
 
-    // 1. Check if session file already exists
-    if (fs.existsSync(sessionPath)) {
-      console.log(
-        `[Session] Found stored session for profile "${profile}". Attempting reuse...`
-      );
-      const restored = await this.sessionManager.restoreSession(sessionPath);
-      if (restored) {
-        console.log(
-          `[Session] Successfully reused session for profile "${profile}".`
-        );
-        return;
-      }
-      console.warn(
-        `[Session] Stored session for profile "${profile}" was expired or invalid. Performing login...`
-      );
-      try {
-        fs.unlinkSync(sessionPath);
-      } catch {}
-    }
+    // // 1. Check if session file already exists
+    // if (fs.existsSync(sessionPath)) {
+    //   console.log(
+    //     `[Session] Found stored session for profile "${profile}". Attempting reuse...`
+    //   );
+    //   const restored = await this.sessionManager.restoreSession(sessionPath);
+    //   if (restored) {
+    //     console.log(
+    //       `[Session] Successfully reused session for profile "${profile}".`
+    //     );
+    //     return;
+    //   }
+    //   console.warn(
+    //     `[Session] Stored session for profile "${profile}" was expired or invalid. Performing login...`
+    //   );
+    //   try {
+    //     fs.unlinkSync(sessionPath);
+    //   } catch {}
+    // }
 
     // 2. Perform full login flow
     await this.executeLoginFlow(emailKeyOrRaw, passwordKeyOrRaw);
 
     // 3. Store session for subsequent tests
-    await this.sessionManager.saveSession(sessionPath);
+    // await this.sessionManager.saveSession(sessionPath);
   }
 }

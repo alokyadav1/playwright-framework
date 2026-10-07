@@ -7,10 +7,10 @@
   "scripts": {
     "bdd:gen": "npx bddgen",
     "test": "npx bddgen && npx playwright test",
-    "test:vfashion-desktop": "npx bddgen && npx playwright test --grep @e2e --headed --project=vfashion-desktop",
-    "test:vfashion-mobile": "npx bddgen && npx playwright test --grep @paypal --headed --project=vfashion-mobile",
-    "test:vpro-desktop": "npx bddgen && npx playwright test --grep @e2e --headed --project=vpro-desktop",
-    "test:vpro-mobile": "npx bddgen && npx playwright test --grep @e2e --headed --project=vpro-mobile",
+    "vfas-desktop": "npx bddgen && npx playwright test --grep Cart.feature --headed --project=vfashion-desktop",
+    "vfas-mobile": "npx bddgen && npx playwright test --grep @paypal --headed --project=vfashion-mobile",
+    "vpro-desktop": "npx bddgen && npx playwright test --headed --project=vpro-desktop",
+    "vpro-mobile": "npx bddgen && npx playwright test --headed --project=vpro-mobile",
     "test:headed": "npx bddgen && npx playwright test --headed",
     "test:api": "npx playwright test --project=api",
     "report": "npx playwright show-report"

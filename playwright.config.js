@@ -42,7 +42,6 @@ export default defineConfig({
         channel: "chrome",
         baseURL: "https://vfashion.logixal.com/",
         locale: "en-US",
-        timezoneId: "Asia/Kolkata",
         testEnv: "dev",
         dataLocale: "en-us",
         headless: false,
