@@ -12,7 +12,7 @@
     "test:vpro-desktop": "npx bddgen && npx playwright test --grep @e2e --headed --project=vpro-desktop",
     "test:vpro-mobile": "npx bddgen && npx playwright test --grep @e2e --headed --project=vpro-mobile",
     "test:headed": "npx bddgen && npx playwright test --headed",
-    "test:api": "npx playwright test --grep API_LOGIN_1 --project=api",
+    "test:api": "npx playwright test --project=api",
     "report": "npx playwright show-report"
   },
   "keywords": [

@@ -30,7 +30,7 @@ export default defineConfig({
     video: "on",
     screenshot: "only-on-failure",
     navigationTimeout: 30000,
-    actionTimeout: 15000
+    actionTimeout: 15000,
   },
 
   projects: [
@@ -39,11 +39,13 @@ export default defineConfig({
       testIgnore: /.*\.api\.spec\.js/,
       use: {
         ...devices["Desktop Chrome"],
+        channel: "chrome",
         baseURL: "https://vfashion.logixal.com/",
         locale: "en-US",
         timezoneId: "Asia/Kolkata",
         testEnv: "dev",
         dataLocale: "en-us",
+        headless: false,
       },
     },
     {
@@ -56,6 +58,7 @@ export default defineConfig({
         timezoneId: "Asia/Kolkata",
         testEnv: "dev",
         dataLocale: "en-us",
+        headless: false,
       },
     },
     {
@@ -68,6 +71,7 @@ export default defineConfig({
         timezoneId: "Asia/Kolkata",
         testEnv: "dev",
         dataLocale: "en-us",
+        headless: false,
       },
     },
     {
@@ -80,6 +84,7 @@ export default defineConfig({
         timezoneId: "Asia/Kolkata",
         testEnv: "dev",
         dataLocale: "en-us",
+        headless: false,
       },
     },
 

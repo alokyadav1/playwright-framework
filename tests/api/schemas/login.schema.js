@@ -79,3 +79,45 @@ export const loginSuccessSchema = {
     },
   },
 };
+
+/**
+ * JSON Schema for the error login response from
+ *   POST /auth/VT/login
+ *
+ * Shape:
+ *   {
+ *     "errors": [
+ *       {
+ *         "errors": ["Invalid UserName or Password"],
+ *         "message": "Service Error",
+ *         "statusCode": 401
+ *       }
+ *     ],
+ *     "path": "/auth/VT/login",
+ *     "timestamp": "2026-10-07T11:42:38.786Z"
+ *   }
+ */
+export const loginErrorSchema = {
+  type: "object",
+  required: ["errors", "path", "timestamp"],
+  properties: {
+    errors: {
+      type: "array",
+      minItems: 1,
+      items: {
+        type: "object",
+        required: ["errors", "message", "statusCode"],
+        properties: {
+          errors: {
+            type: "array",
+            items: { type: "string" },
+          },
+          message: { type: "string" },
+          statusCode: { type: "integer" },
+        },
+      },
+    },
+    path: { type: "string" },
+    timestamp: { type: "string" },
+  },
+};

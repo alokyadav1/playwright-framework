@@ -17,7 +17,10 @@ import dotenv from "dotenv";
 
 import { decryptText } from "../utils/crypto.js";
 import { validateSchema } from "./utils/schema.js";
-import { loginSuccessSchema } from "./schemas/login.schema.js";
+import {
+  loginSuccessSchema,
+  loginErrorSchema,
+} from "./schemas/login.schema.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -114,22 +117,17 @@ test.describe("Auth API - /auth/VT/login", () => {
 
       const body = await response.json();
 
-      // TODO: tighten once the real error status/message is confirmed:
-      //   expect(response.status()).toBe(401);
-      //   expect(body.loginDetails.message).toMatch(/invalid/i);
+      expect(response.status()).toBe(401);
 
-      // For now: no customerid in the body AND status is not 200
-      const customerid =
-        body?.loginDetails?.message?.data?.response?.data?.customerid;
-      expect(
-        customerid,
-        "Expected no customerid for a failed login",
-      ).toBeUndefined();
+      // ── Schema Validation
+      const { valid, errors } = validateSchema(loginErrorSchema, body);
+      expect(valid, `Error schema validation failed:\n${errors}`).toBe(true);
 
-      const status = body?.loginDetails?.status ?? response.status();
-      expect(status, "Expected non-200 status for wrong password").not.toBe(
-        200,
-      );
+      // ── Specific error details validation
+      expect(body.errors[0].statusCode).toBe(401);
+      expect(body.errors[0].message).toBe("Service Error");
+      expect(body.errors[0].errors).toContain("Invalid UserName or Password");
+      expect(body.path).toBe(LOGIN_ENDPOINT);
     },
   );
 
@@ -151,35 +149,23 @@ test.describe("Auth API - /auth/VT/login", () => {
 
       const body = await response.json();
 
-      // TODO: tighten once the real error status/message is confirmed:
-      //   expect(response.status()).toBe(400);
-      //   expect(body.loginDetails.message).toMatch(/username/i);
+      expect(response.status()).toBe(422);
 
-      // For now: no customerid in the body
-      const customerid =
-        body?.loginDetails?.message?.data?.response?.data?.customerid;
-      expect(
-        customerid,
-        "Expected no customerid when username is missing",
-      ).toBeUndefined();
-    },
-  );
+      // ── Schema Validation
+      const { valid, errors } = validateSchema(loginErrorSchema, body);
+      expect(valid, `Error schema validation failed:\n${errors}`).toBe(true);
 
-  // ── API_LOGIN_4 ──────────────────────────────────────────────────────────
-  // Response-time assertion is a soft assertion already embedded in API_LOGIN_1.
-  // This dedicated test provides an explicit, standalone result for reporting.
-  test(
-    "API_LOGIN_4 - Valid login response time is under 3000 ms",
-    { tag: ["@api", "@login"] },
-    async ({ request }) => {
-      const start = Date.now();
-      await request.post(LOGIN_ENDPOINT, { data: buildBody() });
-      const elapsed = Date.now() - start;
-
-      // Soft assertion so a slow response doesn't block the suite
-      expect
-        .soft(elapsed, `Response time ${elapsed}ms exceeded 3000ms`)
-        .toBeLessThan(3000);
+      // ── Specific error details validation
+      expect(body.errors[0].statusCode).toBe(422);
+      expect(body.errors[0].message).toBe("Validation failed");
+      expect(body.errors[0].errors).toEqual(
+        expect.arrayContaining([
+          "username should not be null or undefined",
+          "username must be a string",
+          "username should not be empty",
+        ]),
+      );
+      expect(body.path).toBe(LOGIN_ENDPOINT);
     },
   );
 });
